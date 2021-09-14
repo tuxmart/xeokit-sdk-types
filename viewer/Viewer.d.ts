@@ -219,3 +219,6 @@ import { Scene } from "./scene/scene/Scene.js";
 import { MetaScene } from "./metadata/MetaScene.js";
 import { CameraFlightAnimation } from "./scene/camera/CameraFlightAnimation.js";
 import { CameraControl } from "./scene/CameraControl/CameraControl.js";
+
+export { Entity } from './scene/Entity';
+export { Component } from './scene/Component';
