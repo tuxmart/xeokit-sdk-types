@@ -320,7 +320,7 @@ export class Scene extends Component {
      * @type {{String:Entity}}
      */
     models: {
-        String: any;
+        String: Entity;
     };
     /**
      * Map of {@link Entity}s that represents objects.
@@ -332,7 +332,7 @@ export class Scene extends Component {
      * @type {{String:Entity}}
      */
     objects: {
-        String: any;
+        String: Entity;
     };
     _numObjects: number;
     /**
@@ -345,7 +345,7 @@ export class Scene extends Component {
      * @type {{String:Object}}
      */
     visibleObjects: {
-        String: any;
+        String: Entity;
     };
     _numVisibleObjects: number;
     /**
@@ -360,7 +360,7 @@ export class Scene extends Component {
      * @type {{String:Object}}
      */
     xrayedObjects: {
-        String: any;
+        String: Entity;
     };
     _numXRayedObjects: number;
     /**
@@ -657,11 +657,11 @@ export class Scene extends Component {
     _entityOffsetsEnabled: boolean;
     _logarithmicDepthBufferEnabled: boolean;
     _pbrEnabled: boolean;
-    _viewport: any;
-    _camera: any;
+    _viewport: Viewport;
+    _camera: Camera;
     _initDefaults(): void;
-    _addComponent(component: any): void;
-    _removeComponent(component: any): void;
+    _addComponent(component: Component): void;
+    _removeComponent(component: Component): void;
     _sectionPlaneCreated(sectionPlane: any): void;
     _lightCreated(light: any): void;
     _lightMapCreated(lightMap: any): void;
@@ -1214,4 +1214,5 @@ import { EdgeMaterial } from "../materials/EdgeMaterial.js";
 import { PointsMaterial } from "../materials/PointsMaterial.js";
 import { LinesMaterial } from "../materials/LinesMaterial.js";
 import { Viewport } from "../viewport/Viewport.js";
-import { Camera } from "../camera/Camera.js";
+import { Camera } from "../camera/Camera.js";import { Entity } from '../Entity.js';
+

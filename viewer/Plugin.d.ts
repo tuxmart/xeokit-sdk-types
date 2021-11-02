@@ -1,3 +1,5 @@
+import { Viewer } from './Viewer';
+
 /**
  @desc Base class for {@link Viewer} plugin classes.
  */
@@ -9,7 +11,7 @@ export class Plugin {
      * @param {Viewer} viewer The viewer.
      * @param {Object} [cfg] Options
      */
-    constructor(id: string, viewer: any, cfg?: any);
+    constructor(id: string, viewer: Viewer, cfg?: any);
     /**
      * ID for this Plugin, unique within its {@link Viewer}.
      *
@@ -21,7 +23,7 @@ export class Plugin {
      *
      * @type {Viewer}
      */
-    viewer: any;
+    viewer: Viewer;
     /**
      * Subscriptions to events fired at this Plugin.
      * @private
@@ -40,7 +42,7 @@ export class Plugin {
      @param {String} event The event type name
      @param {Object} value The event parameters
      */
-    fire(event: string, value: any): void;
+    fire<T = any>(event: string, value: T): void;
     /**
      * Logs a message to the JavaScript developer console, prefixed with the ID of this Plugin.
      *

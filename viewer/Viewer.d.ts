@@ -94,7 +94,7 @@ export class Viewer {
      * @property camera
      * @type {Camera}
      */
-    camera: any;
+    camera: Camera;
     /**
      * The Viewer's {@link CameraFlightAnimation}, which
      * is used to fly the {@link Scene}'s {@link Camera} to given targets.
@@ -109,7 +109,7 @@ export class Viewer {
      * @type {CameraControl}
      */
     cameraControl: CameraControl;
-    _plugins: any[];
+    _plugins: Plugin[];
     /**
      * Subscriptions to events sent with {@link fire}.
      * @private
@@ -128,7 +128,7 @@ export class Viewer {
      * @param {String} event Event name
      * @param {Object} value Event parameters
      */
-    fire(event: string, value: any): void;
+    fire<T = any>(event: string, value: T): void;
     /**
      * Unsubscribes from an event fired at this Viewer.
      * @param event
@@ -203,7 +203,12 @@ export class Viewer {
      * @param {Boolean} [params.includeGizmos=false] When true, will include gizmos like {@link SectionPlane} in the snapshot.
      * @returns {String} String-encoded image data URI.
      */
-    getSnapshot(params?: any): string;
+    getSnapshot(params?: {
+        width?: number;
+        height?: number;
+        format?: "jpeg" | "png" | "bmp";
+        includeGizmos?: boolean;
+    }): string;
     /**
      * Exits snapshot mode.
      *
@@ -219,6 +224,8 @@ import { Scene } from "./scene/scene/Scene.js";
 import { MetaScene } from "./metadata/MetaScene.js";
 import { CameraFlightAnimation } from "./scene/camera/CameraFlightAnimation.js";
 import { CameraControl } from "./scene/CameraControl/CameraControl.js";
+import { Camera } from './scene/camera/Camera.js';
+import { Plugin } from './Plugin.js';
 
 export { Entity } from './scene/Entity';
 export { Component } from './scene/Component';
